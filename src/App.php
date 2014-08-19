@@ -75,9 +75,9 @@ class App
         }
 
         // remove empty classes
-        foreach ($classes as $id => $students) {
+        foreach ($classes as $day => $students) {
             if ($students === []) {
-                unset($classes[$id]);
+                unset($classes[$day]);
             }
         }
 
