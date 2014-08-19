@@ -13,7 +13,7 @@ class App
     const MAX_STUDENTS = 4;
 
     /**
-     * @param type $input
+     * @param string $input
      * @return string
      */
     public function run($input)
