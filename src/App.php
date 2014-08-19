@@ -10,7 +10,7 @@ namespace Nagoyaphp\Lesson;
 
 class App
 {
-    const MAX_APPLICANT = 4;
+    const MAX_STUDENTS = 4;
 
     /**
      * @param type $input
@@ -33,14 +33,14 @@ class App
 
         $data = explode('|', $input);
         foreach ($data as $applicant) {
-            list($id, $classesString) = explode('_', $applicant);
-            $applicants[$id] = $classesString;
+            list($id, $daysString) = explode('_', $applicant);
+            $applicants[$id] = $daysString;
         }
 
         return $applicants;
-        // [id => classesString]
+        // [id => daysString]
         // eg, [1 => '12345']
-        // classesString: 月=1, 火=2, 水=3, 木=4, 金=5
+        // daysString: 月=1, 火=2, 水=3, 木=4, 金=5
     }
 
     /**
@@ -58,14 +58,14 @@ class App
 
         $i = 0;
         while ($i < 5) {
-            foreach ($applicants as $id => $classesString) {
+            foreach ($applicants as $id => $daysString) {
                 // get the $i th choice
-                $day = $classesString[$i];
+                $day = $daysString[$i];
 
-                if (count($classes[$day]) < static::MAX_APPLICANT) {
+                if (count($classes[$day]) < static::MAX_STUDENTS) {
                     $classes[$day][] = $id;
                 } else {
-                    $remainingApplicants[$id] = $classesString;
+                    $remainingApplicants[$id] = $daysString;
                 }
             }
 
