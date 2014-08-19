@@ -19,8 +19,8 @@ class App
     public function run($input)
     {
         $appilcants = $this->parseInput($input);
-        $lessons = $this->processApplicants($appilcants);
-        return $this->output($lessons);
+        $classes = $this->processApplicants($appilcants);
+        return $this->output($classes);
     }
 
     /**
@@ -87,14 +87,14 @@ class App
     }
 
     /**
-     * @param array $lessons
+     * @param array $classes
      * @return string
      */
-    public function output($lessons)
+    public function output($classes)
     {
         $output = '';
 
-        foreach ($lessons as $day => $students) {
+        foreach ($classes as $day => $students) {
             sort($students, SORT_NUMERIC);
             $output .= $day . '_' .implode(':', $students) .'|';
         }
